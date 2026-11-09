@@ -70,7 +70,7 @@ IFS="|" read NUMBER NAME SYMBOL TYPE MASS MELTING BOILING <<< "$ELEMENT"
 echo "The element with atomic number $NUMBER is $NAME ($SYMBOL). It's a $TYPE, with a mass of $MASS amu. $NAME has a melting point of $MELTING celsius and a boiling point of $BOILING celsius."
 SCRIPT
 $GIT commit -qam "feat: look up element by number, symbol or name"
-$GIT commit -q --allow-empty -m "fix: database columns and element data"
-$GIT commit -q --allow-empty -m "chore: finalize element script"
+echo "# Periodic Table" > README.md && $GIT add README.md && $GIT commit -qm "chore: add readme"
+echo "Element lookup script for the periodic_table database." >> README.md && $GIT commit -qam "chore: describe project in readme"
 git status --short; git log --oneline
 echo "periodic_table ready. Now click Run in CodeRoad."
