@@ -1,7 +1,8 @@
 #!/bin/bash
 # Run inside the Codespace (Periodic Table Database)
+# Run it from the root folder of the CodeRoad workspace for this project
 set -e
-cd /workspace/project
+echo "Working in: $(pwd)"
 if psql -U freecodecamp -d periodic_table -tAc "SELECT 1 FROM information_schema.columns WHERE table_name='properties' AND column_name='weight'" | grep -q 1
 then
 psql -U freecodecamp -d periodic_table -v ON_ERROR_STOP=1 <<'SQL'
